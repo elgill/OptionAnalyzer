@@ -1,5 +1,5 @@
 # OptionAnalyzer
-This project is written in Python 3.
+This project is written in Python 3. Currently aiming for a discord based bot providing info on stocks and options based off the yfinance library.
   
 
 ## Dependencies
@@ -7,3 +7,4 @@ This project is written in Python 3.
  - yfinance
  - Pandas
  - NumPy
+ - discord

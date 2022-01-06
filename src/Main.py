@@ -2,15 +2,18 @@ import yfinance as yf
 
 stock = yf.Ticker("DVAX")
 
-#print(str(tsla.info))
-info = stock.info
 
-for item in info:
-    print(f"{item}: {info[item]}")
+def printStockInfo(ticker):
+    info = ticker.info
+    for item in info:
+        print(f"{item}: {info[item]}")
 
-#tsla.actions
+def printOptionDates(ticker):
+    print(str(ticker.options))
 
-#tsla.splits
-
-print(str(stock.options))
-
+def printNewsInfo(ticker):
+    news=ticker.news
+    for article in news:
+        for attr in article:
+            print(f"{attr}: {article[attr]}")
+        print("")
