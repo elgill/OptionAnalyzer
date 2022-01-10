@@ -9,7 +9,11 @@ def printStockInfo(ticker):
         print(f"{item}: {info[item]}")
 
 def printOptionDates(ticker):
-    print(str(ticker.options))
+    print(str())
+    for date in ticker.options:
+        chain=ticker.option_chain(date)
+        print(str(chain.calls))
+        print(str(chain.puts))
 
 def printNewsInfo(ticker):
     news=ticker.news
@@ -17,3 +21,5 @@ def printNewsInfo(ticker):
         for attr in article:
             print(f"{attr}: {article[attr]}")
         print("")
+
+#printOptionDates(stock)
