@@ -1,0 +1,5 @@
+yfinance
+Pandas
+NumPy
+discord
+python-dotenv
