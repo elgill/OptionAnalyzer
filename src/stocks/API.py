@@ -1,7 +1,12 @@
 # This file is temporary to get a feel for the API, and see how to best structure this project
 import yfinance as yf
+#ticker=yf.Ticker("DVAX")
+#print(ticker.get_info)
+#print(ticker.info)
+#print(ticker.info["regularMarketPrice"])
 
-stock = yf.Ticker("DVAX")
+def getTicker(symbol):
+    return yf.Ticker(symbol)
 
 def getInfo(ticker):
     return ticker.info
@@ -33,5 +38,3 @@ def printNewsInfo(ticker):
         for attr in article:
             print(f"{attr}: {article[attr]}")
         print("")
-
-printOptionDates(stock)
