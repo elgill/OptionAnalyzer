@@ -24,7 +24,12 @@ async def cmd_stock(ctx,arg):
     response+= f"Market Price: {tickerInfo['regularMarketPrice']}"
     await ctx.send(response)
     response=""
+    maxArticles=4
+    cnt=1
     for article in api.getNews(ticker):
+        cnt+=1
+        if (cnt>maxArticles):
+            break
         response=f"`{article['title']}`"
         response+=f"\n{article['link']}"
         response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
