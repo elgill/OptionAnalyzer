@@ -14,8 +14,9 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
 
+#arg2 can serve as optionname
 @bot.command(name='stock', help='Stonks?')
-async def cmd_stock(ctx,arg):
+async def cmd_stock(ctx,arg,arg2):
     await ctx.send("Let me get that for you..")
     arg=str(arg)
     ticker=api.getTicker(arg)
@@ -35,6 +36,6 @@ async def cmd_stock(ctx,arg):
         response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
         
         await ctx.send(response)
-    #await ctx.send(response)
+    await ctx.send(str(arg2))
 
 bot.run(TOKEN)
