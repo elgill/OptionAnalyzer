@@ -39,7 +39,7 @@ async def cmd_stock(ctx,arg,arg2):
     await ctx.send(str(arg2))
 
 @bot.command(name='stop', help='Stops?')
-async def cmd_stock(ctx,arg,arg2):
+async def cmd_exit(ctx,arg,arg2):
     exit()
     pass
 bot.run(TOKEN)
