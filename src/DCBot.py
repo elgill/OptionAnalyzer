@@ -37,7 +37,7 @@ async def cmd_stock(ctx,arg):
         await ctx.send(response)
 
 #arg2 can serve as optionname
-@bot.command(name='stock', help='Stonks?')
+@bot.command(name='stocks', help='Stonks?')
 async def cmd_stock_2_args(ctx,arg,arg2):
     await ctx.send("Let me get that for you..")
     arg=str(arg)
