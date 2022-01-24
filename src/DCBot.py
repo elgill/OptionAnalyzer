@@ -39,7 +39,8 @@ async def cmd_stock(ctx,arg,arg2):
     await ctx.send(str(arg2))
 
 @bot.command(name='stop', help='Stops?')
-async def cmd_exit(ctx,arg,arg2):
+async def cmd_stop(ctx,arg,arg2):
+    await ctx.send("Trying to stop")
     exit()
-    pass
+    await ctx.send("probs didn't work lol")
 bot.run(TOKEN)
