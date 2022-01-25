@@ -14,14 +14,31 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
 
+
+@bot.command(name='dev', help='Stonks?')
+async def cmd_dev(ctx):
+    await ctx.send("Let me get that for you..")
+    ticker=api.getTicker("DVAX")
+    tickerInfo=api.getInfo(ticker)
+    response=""
+    response+=str(tickerInfo)
+    #for key in tickerInfo.keys:
+    #    response+=key+", "
+    print(response)
+    await ctx.send(response)
+
+
+
 @bot.command(name='stock', help='Stonks?')
 async def cmd_stock(ctx,arg):
     await ctx.send("Let me get that for you..")
     arg=str(arg)
     ticker=api.getTicker(arg)
     tickerInfo=api.getInfo(ticker)
-    response = f"Stonks: {arg}\n"
-    response+= f"Market Price: {tickerInfo['regularMarketPrice']}"
+    response = f"Stonks: {arg}"
+    response+= f"\nMarket Price: {tickerInfo['regularMarketPrice']}"
+    response+= f"\nPrevious Close: {tickerInfo['previousClose']}"
+    response+= f"\nOpen: {tickerInfo['open']}"
     await ctx.send(response)
     response=""
     maxArticles=4
@@ -35,6 +52,8 @@ async def cmd_stock(ctx,arg):
         response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
         
         await ctx.send(response)
+
+
 
 #arg2 can serve as optionname
 @bot.command(name='stocks', help='Stonks?')
