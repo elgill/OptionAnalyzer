@@ -48,7 +48,7 @@ async def cmd_stock(ctx,arg):
         if (cnt>maxArticles):
             break
         response=f"`{article['title']}`"
-        response+=f"\n{article['link']}"
+        #response+=f"\n{article['link']}"
         response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
         
         await ctx.send(response)
@@ -73,7 +73,7 @@ async def cmd_stock_2_args(ctx,arg,arg2):
         if (cnt>maxArticles):
             break
         response=f"`{article['title']}`"
-        response+=f"\n{article['link']}"
+        #response+=f"\n{article['link']}"
         response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
         
         await ctx.send(response)
@@ -81,7 +81,6 @@ async def cmd_stock_2_args(ctx,arg,arg2):
 
 @bot.command(name='stop', help='Stops?')
 async def cmd_stop(ctx):
-    await ctx.send("Trying to stop")
+    await ctx.send("Stopping.. ")
     exit()
-    await ctx.send("probs didn't work lol")
 bot.run(TOKEN)
