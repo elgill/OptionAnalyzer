@@ -13,6 +13,9 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
 
+def sanitizeMessage(message):
+    
+    return message[0:1999]
 
 @bot.command(name='stock', help='Stonks?')
 async def cmd_stock(ctx,arg):
@@ -43,7 +46,14 @@ async def cmd_stock(ctx,arg):
 #arg2 can serve as optionname
 @bot.command(name='option', help='Stonks?')
 async def cmd_option(ctx,arg,arg2):
-    await ctx.send(str(arg)+str(arg2))
+    arg=str(arg)
+    ticker=api.getTicker(arg)
+    if arg2 == "?":
+        options=api.getOptionDates(ticker)
+    else:
+        options=api.getOptionChainByDate(ticker,arg2)
+    response=f"{str(arg)}: {str(options)}"
+    await ctx.send(sanitizeMessage(response))
 
 @bot.command(name='stop', help='Stops?')
 async def cmd_stop(ctx):
