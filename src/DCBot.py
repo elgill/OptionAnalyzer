@@ -27,7 +27,7 @@ async def cmd_stock(ctx,arg):
     response+= f"\nMarket Price: {tickerInfo['regularMarketPrice']}"
     response+= f"\nPrevious Close: {tickerInfo['previousClose']}"
     response+= f"\nOpen: {tickerInfo['open']}"
-    await ctx.send(response)
+    await ctx.send(sanitizeMessage(response))
     response=""
     maxArticles=4
     cnt=1
@@ -39,7 +39,7 @@ async def cmd_stock(ctx,arg):
         #response+=f"\n{article['link']}"
         response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
         
-        await ctx.send(response)
+        await ctx.send(sanitizeMessage(response))
 
 
 
