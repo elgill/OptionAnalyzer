@@ -36,7 +36,7 @@ async def cmd_stock(ctx,arg):
         if (cnt>maxArticles):
             break
         response=f"`{article['title']}`"
-        #response+=f"\n{article['link']}"
+        response+=f"\n<{article['link']}>"
         response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
         
         await ctx.send(sanitizeMessage(response))
