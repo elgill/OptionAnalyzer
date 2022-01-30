@@ -1,7 +1,6 @@
 import os
 import datetime
 
-
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -14,7 +13,6 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix='!')
 
 def sanitizeMessage(message):
-    
     return message[0:1999]
 
 @bot.command(name='stock', help='Stonks?')
@@ -41,8 +39,6 @@ async def cmd_stock(ctx,arg):
         
         await ctx.send(sanitizeMessage(response))
 
-
-
 #arg2 can serve as optionname
 @bot.command(name='option', help='Stonks?')
 async def cmd_option(ctx,arg,arg2):
@@ -59,4 +55,5 @@ async def cmd_option(ctx,arg,arg2):
 async def cmd_stop(ctx):
     await ctx.send("Stopping.. ")
     exit()
+
 bot.run(TOKEN)
