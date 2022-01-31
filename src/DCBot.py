@@ -35,7 +35,8 @@ async def cmd_stock(ctx,arg):
             break
         response=f"`{article['title']}`"
         response+=f"\n<{article['link']}>"
-        response+=f"\n{datetime.datetime.fromtimestamp(article['providerPublishTime'])}"
+        articleDate=datetime.datetime.fromtimestamp(article['providerPublishTime'])
+        response+=f"\n{articleDate.strftime('%A %b %d %I:%M %p')}"
         
         await ctx.send(sanitizeMessage(response))
 
