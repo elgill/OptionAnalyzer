@@ -21,7 +21,7 @@ async def cmd_stock(ctx,arg):
     arg=str(arg)
     ticker=api.getTicker(arg)
     tickerInfo=api.getInfo(ticker)
-    response = f"Stonks: {arg}"
+    response = f"Ticker: {arg}"
     response+= f"\nMarket Price: {tickerInfo['regularMarketPrice']}"
     response+= f"\nPrevious Close: {tickerInfo['previousClose']}"
     response+= f"\nOpen: {tickerInfo['open']}"
@@ -36,7 +36,8 @@ async def cmd_stock(ctx,arg):
         response=f"`{article['title']}`"
         response+=f"\n<{article['link']}>"
         articleDate=datetime.datetime.fromtimestamp(article['providerPublishTime'])
-        response+=f"\n{articleDate.strftime('%A %b %d %I:%M %p')}"
+        articleDate=articleDate.strftime('%A %b %d %I:%M %p')
+        response+=f"\n{articleDate}"
         
         await ctx.send(sanitizeMessage(response))
 
