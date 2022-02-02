@@ -42,7 +42,6 @@ async def cmd_stock(ctx,arg):
         response=f"`{article['title']}`"
         response+=f"\n<{article['link']}>"
         articleDate=datetime.datetime.fromtimestamp(article['providerPublishTime'])
-        #https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
         articleDate=articleDate.strftime('%A %b %d %I:%M %p')
         response+=f"\n{articleDate}"
         
