@@ -22,9 +22,15 @@ async def cmd_stock(ctx,arg):
     ticker=api.getTicker(arg)
     tickerInfo=api.getInfo(ticker)
     response = f"Stonks: {arg}"
-    response+= f"\nMarket Price: {tickerInfo['regularMarketPrice']}"
-    response+= f"\nPrevious Close: {tickerInfo['previousClose']}"
-    response+= f"\nOpen: {tickerInfo['open']}"
+    price=tickerInfo['regularMarketPrice']
+    price="${:,.2f}".format(price)
+    prevClose=tickerInfo['previousClose']
+    prevClose="${:,.2f}".format(prevClose)
+    open=tickerInfo['open']
+    open="${:,.2f}".format(open)
+    response+= f"\nMarket Price: {price}"
+    response+= f"\nPrevious Close: {prevClose}"
+    response+= f"\nOpen: {open}"
     await ctx.send(sanitizeMessage(response))
     response=""
     maxArticles=4
@@ -36,7 +42,9 @@ async def cmd_stock(ctx,arg):
         response=f"`{article['title']}`"
         response+=f"\n<{article['link']}>"
         articleDate=datetime.datetime.fromtimestamp(article['providerPublishTime'])
-        response+=f"\n{articleDate.strftime('%A %b %d %I:%M %p')}"
+        #https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+        articleDate=articleDate.strftime('%A %b %d %I:%M %p')
+        response+=f"\n{articleDate}"
         
         await ctx.send(sanitizeMessage(response))
 
