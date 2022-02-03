@@ -21,7 +21,7 @@ async def cmd_stock(ctx,arg):
     arg=str(arg)
     ticker=api.getTicker(arg)
     tickerInfo=api.getInfo(ticker)
-    response = f"Stonks: {arg}"
+    response = f"Ticker: {arg}"
     price=tickerInfo['regularMarketPrice']
     price="${:,.2f}".format(price)
     prevClose=tickerInfo['previousClose']

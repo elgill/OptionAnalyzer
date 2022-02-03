@@ -1,9 +1,5 @@
-# This file is temporary to get a feel for the API, and see how to best structure this project
+# This file is temporary?(or maybe not now) to get a feel for the API, and see how to best structure this project
 import yfinance as yf
-#ticker=yf.Ticker("DVAX")
-#print(ticker.get_info)
-#print(ticker.info)
-#print(ticker.info["regularMarketPrice"])
 
 def getTicker(symbol):
     return yf.Ticker(symbol)
