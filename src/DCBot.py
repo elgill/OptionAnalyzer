@@ -18,16 +18,15 @@ def sanitizeMessage(message):
 @bot.command(name='stock', help='Stonks?')
 async def cmd_stock(ctx,arg):
     await ctx.send("Let me get that for you..")
-    arg=str(arg)
+    #arg=str(arg)
     ticker=api.getTicker(arg)
     tickerInfo=api.getInfo(ticker)
+    
+    price="${:,.2f}".format(tickerInfo['regularMarketPrice'])
+    prevClose="${:,.2f}".format(tickerInfo['previousClose'])
+    open="${:,.2f}".format(tickerInfo['open'])
+    
     response = f"Ticker: {arg}"
-    price=tickerInfo['regularMarketPrice']
-    price="${:,.2f}".format(price)
-    prevClose=tickerInfo['previousClose']
-    prevClose="${:,.2f}".format(prevClose)
-    open=tickerInfo['open']
-    open="${:,.2f}".format(open)
     response+= f"\nMarket Price: {price}"
     response+= f"\nPrevious Close: {prevClose}"
     response+= f"\nOpen: {open}"
