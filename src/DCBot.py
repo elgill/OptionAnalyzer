@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix='!')
 def sanitizeMessage(message):
     return message[0:1999]
 
-@bot.command(name='stock', help='Stonks?')
+@bot.command(name='stock', help='Returns Stock information')
 async def cmd_stock(ctx,arg):
     await ctx.send("Let me get that for you..")
     #arg=str(arg)
@@ -47,7 +47,7 @@ async def cmd_stock(ctx,arg):
         await ctx.send(sanitizeMessage(response))
 
 #arg2 can serve as optionname
-@bot.command(name='option', help='Stonks?')
+@bot.command(name='option', help='Returns info about options')
 async def cmd_option(ctx,arg,arg2):
     arg=str(arg)
     ticker=api.getTicker(arg)
