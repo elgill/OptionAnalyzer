@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 import stocks.API as api
 
-
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -46,7 +45,14 @@ async def cmd_stock(ctx,arg):
         
         await ctx.send(sanitizeMessage(response))
 
-#arg2 can serve as optionname
+#----------------------------------------------------------------#
+#   NAME: cmd_option
+#   DESCRIPTION: Placeholder text
+#   PARAMS: ctx
+#           arg
+#           arg2
+#   RETURN: None
+#----------------------------------------------------------------#
 @bot.command(name='option', help='Returns info about options')
 async def cmd_option(ctx,arg,arg2):
     arg=str(arg)
