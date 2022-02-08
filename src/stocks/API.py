@@ -1,6 +1,12 @@
 # This file is temporary?(or maybe not now) to get a feel for the API, and see how to best structure this project
 import yfinance as yf
 
+#----------------------------------------------------------------#
+#   NAME: getTicker
+#   DESCRIPTION: Placeholder text
+#   PARAMS: symbol - String representing Ticker symbol
+#   RETURN: yfinance Ticker object
+#----------------------------------------------------------------#
 def getTicker(symbol):
     return yf.Ticker(symbol)
 
