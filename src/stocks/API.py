@@ -3,16 +3,28 @@ import yfinance as yf
 
 #----------------------------------------------------------------#
 #   NAME: getTicker
-#   DESCRIPTION: Placeholder text
+#   DESCRIPTION: Function to gather yfinance Object
 #   PARAMS: symbol - String representing Ticker symbol
 #   RETURN: yfinance Ticker object
 #----------------------------------------------------------------#
 def getTicker(symbol):
     return yf.Ticker(symbol)
 
+#----------------------------------------------------------------#
+#   NAME: getInfo
+#   DESCRIPTION: Function to gather information about a yfinance Object
+#   PARAMS: ticker - yfinance Ticker object
+#   RETURN: Info about stock from API in a dictionary
+#----------------------------------------------------------------#
 def getInfo(ticker):
     return ticker.info
 
+#----------------------------------------------------------------#
+#   NAME: getOptionDates
+#   DESCRIPTION: Function to gather list of option dates
+#   PARAMS: ticker - yfinance Ticker object
+#   RETURN: An array of option dates/symbols
+#----------------------------------------------------------------#
 def getOptionDates(ticker):
     return ticker.options
 
