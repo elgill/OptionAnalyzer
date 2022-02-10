@@ -28,24 +28,46 @@ def getInfo(ticker):
 def getOptionDates(ticker):
     return ticker.options
 
+#----------------------------------------------------------------#
+#   NAME: getOptionChainByDate
+#   DESCRIPTION: Function to gather info about an option
+#   PARAMS: ticker - yfinance Ticker object
+#   RETURN: DataFrame for now..
+#----------------------------------------------------------------#
 def getOptionChainByDate(ticker,date):
     # TODO: Manipulate data from DataFrame to more usable
     return ticker.option_chain(date)
 
+#----------------------------------------------------------------#
+#   NAME: getNews
+#   DESCRIPTION: Function to gather news about the stock
+#   PARAMS: ticker - yfinance Ticker object
+#   RETURN: An array news story dictionaries
+#----------------------------------------------------------------#
 def getNews(ticker):
     return ticker.news
 
+
+#----------------------------------------------------------------#
+#   DEPRECATED
+#----------------------------------------------------------------#
 def printStockInfo(ticker):
     info = ticker.info
     for item in info:
         print(f"{item}: {info[item]}")
 
+#----------------------------------------------------------------#
+#   DEPRECATED
+#----------------------------------------------------------------#
 def printOptionDates(ticker):
     for date in ticker.options:
         chain=ticker.option_chain(date)
         print(chain.calls)
         #print(str(chain.puts))
 
+#----------------------------------------------------------------#
+#   DEPRECATED
+#----------------------------------------------------------------#
 def printNewsInfo(ticker):
     news=ticker.news
     for article in news:
