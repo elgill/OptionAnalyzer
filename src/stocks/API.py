@@ -47,30 +47,3 @@ def getOptionChainByDate(ticker,date):
 def getNews(ticker):
     return ticker.news
 
-
-#----------------------------------------------------------------#
-#   DEPRECATED
-#----------------------------------------------------------------#
-def printStockInfo(ticker):
-    info = ticker.info
-    for item in info:
-        print(f"{item}: {info[item]}")
-
-#----------------------------------------------------------------#
-#   DEPRECATED
-#----------------------------------------------------------------#
-def printOptionDates(ticker):
-    for date in ticker.options:
-        chain=ticker.option_chain(date)
-        print(chain.calls)
-        #print(str(chain.puts))
-
-#----------------------------------------------------------------#
-#   DEPRECATED
-#----------------------------------------------------------------#
-def printNewsInfo(ticker):
-    news=ticker.news
-    for article in news:
-        for attr in article:
-            print(f"{attr}: {article[attr]}")
-        print("")
