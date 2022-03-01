@@ -6,11 +6,18 @@ from dotenv import load_dotenv
 
 import stocks.API as api
 
+# Load environment variable with discord API key
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
 
+#----------------------------------------------------------------#
+#   NAME: sanitizeMessage
+#   DESCRIPTION: Ensure message is safe to send
+#   PARAMS: message - string to sanitize
+#   RETURN: Sanitized string
+#----------------------------------------------------------------#
 def sanitizeMessage(message):
     return message[0:1999]
 
