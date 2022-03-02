@@ -21,6 +21,13 @@ bot = commands.Bot(command_prefix='!')
 def sanitizeMessage(message):
     return message[0:1999]
 
+#----------------------------------------------------------------#
+#   NAME: cmd_stock
+#   DESCRIPTION: Returns info about stock
+#   PARAMS: ctx
+#           arg - ticker
+#   RETURN: None
+#----------------------------------------------------------------#
 @bot.command(name='stock', help='Returns Stock information')
 async def cmd_stock(ctx,arg):
     await ctx.send("Let me get that for you..")
@@ -54,7 +61,7 @@ async def cmd_stock(ctx,arg):
 
 #----------------------------------------------------------------#
 #   NAME: cmd_option
-#   DESCRIPTION: Placeholder text
+#   DESCRIPTION: Returns info about options
 #   PARAMS: ctx
 #           arg
 #           arg2
@@ -71,6 +78,12 @@ async def cmd_option(ctx,arg,arg2):
     response=f"{str(arg)}: {str(options)}"
     await ctx.send(sanitizeMessage(response))
 
+#----------------------------------------------------------------#
+#   NAME: cmd_stop
+#   DESCRIPTION: Stops bot
+#   PARAMS: ctx
+#   RETURN: None
+#----------------------------------------------------------------#
 @bot.command(name='stop', help='Stops?')
 async def cmd_stop(ctx):
     await ctx.send("Stopping.. ")
