@@ -10,6 +10,7 @@ import stocks.API as api
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
+# Bot Configuration
 bot = commands.Bot(command_prefix='!')
 
 #----------------------------------------------------------------#
@@ -89,4 +90,5 @@ async def cmd_stop(ctx):
     await ctx.send("Stopping.. ")
     exit()
 
+# Initialize bot
 bot.run(TOKEN)
